@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pingaling-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: pingaling-operator
+  template:
+    metadata:
+      labels:
+        name: pingaling-operator
+    spec:
+      serviceAccountName: pingaling-operator
+      containers:
+        - name: pingaling-operator
+          # Replace this with the built image name
+          image: REPLACE_IMAGE
+          ports:
+          - containerPort: 60000
+            name: metrics
+          command:
+          - pingaling-operator
+          imagePullPolicy: Always
+          env:
+            - name: WATCH_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: OPERATOR_NAME
+              value: "pingaling-operator"
