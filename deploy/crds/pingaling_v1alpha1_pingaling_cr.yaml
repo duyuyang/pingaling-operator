@@ -1,0 +1,7 @@
+---
+apiVersion: pingaling.io/v1alpha1
+kind: Pingaling
+metadata:
+  name: pingaling-dev
+spec:
+  size: 3
