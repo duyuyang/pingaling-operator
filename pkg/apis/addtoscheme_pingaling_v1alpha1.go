@@ -1,7 +1,7 @@
 package apis
 
 import (
-	"bitbucket.org/pingaling-monitoring/pingaling-operator/pkg/apis/pingaling/v1alpha1"
+	"bitbucket.org/pingaling-monitoring/operator/pkg/apis/pingaling/v1alpha1"
 )
 
 func init() {

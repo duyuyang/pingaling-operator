@@ -8,7 +8,7 @@ import (
 
 	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
 
-	pingalingv1alpha1 "bitbucket.org/pingaling-monitoring/pingaling-operator/pkg/apis/pingaling/v1alpha1"
+	pingalingv1alpha1 "bitbucket.org/pingaling-monitoring/operator/pkg/apis/pingaling/v1alpha1"
 	appsv1 "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
@@ -90,8 +90,6 @@ func (r *ReconcilePingaling) Reconcile(request reconcile.Request) (reconcile.Res
 	reqLogger := log.WithValues("Request.Namespace", request.Namespace, "Request.Name", request.Name)
 	reqLogger.Info("Reconciling Pingaling")
 
-	// ==============================================================================================
-
 	// Fetch the Pingaling instance
 	instance := &pingalingv1alpha1.Pingaling{}
 	err := r.client.Get(context.TODO(), request.NamespacedName, instance)
@@ -160,37 +158,7 @@ func (r *ReconcilePingaling) Reconcile(request reconcile.Request) (reconcile.Res
 		}
 	}
 	return reconcile.Result{}, nil
-	// // ============================????????????????????===========================================
 
-	// // Define a new Pod object
-	// pod := newPodForCR(instance)
-
-	// // Set Pingaling instance as the owner and controller
-	// if err := controllerutil.SetControllerReference(instance, pod, r.scheme); err != nil {
-	// 	return reconcile.Result{}, err
-	// }
-
-	// // ============================?????????????????????============================================
-
-	// // Check if this Pod already exists
-	// found := &corev1.Pod{}
-	// err = r.client.Get(context.TODO(), types.NamespacedName{Name: pod.Name, Namespace: pod.Namespace}, found)
-	// if err != nil && errors.IsNotFound(err) {
-	// 	reqLogger.Info("Creating a new Pod", "Pod.Namespace", pod.Namespace, "Pod.Name", pod.Name)
-	// 	err = r.client.Create(context.TODO(), pod)
-	// 	if err != nil {
-	// 		return reconcile.Result{}, err
-	// 	}
-
-	// 	// Pod created successfully - don't requeue
-	// 	return reconcile.Result{}, nil
-	// } else if err != nil {
-	// 	return reconcile.Result{}, err
-	// }
-
-	// // Pod already exists - don't requeue
-	// reqLogger.Info("Skip reconcile: Pod already exists", "Pod.Namespace", found.Namespace, "Pod.Name", found.Name)
-	// return reconcile.Result{}, nil
 }
 
 func (r *ReconcilePingaling) deploymentForPingaling(p *pingalingv1alpha1.Pingaling) *appsv1.Deployment {

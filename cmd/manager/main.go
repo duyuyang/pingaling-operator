@@ -6,8 +6,8 @@ import (
 	"os"
 	"runtime"
 
-	"bitbucket.org/pingaling-monitoring/pingaling-operator/pkg/apis"
-	"bitbucket.org/pingaling-monitoring/pingaling-operator/pkg/controller"
+	"bitbucket.org/pingaling-monitoring/operator/pkg/apis"
+	"bitbucket.org/pingaling-monitoring/operator/pkg/controller"
 	"github.com/operator-framework/operator-sdk/pkg/k8sutil"
 	sdkVersion "github.com/operator-framework/operator-sdk/version"
 	_ "k8s.io/client-go/plugin/pkg/client/auth/gcp"
