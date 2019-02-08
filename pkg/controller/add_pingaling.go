@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"bitbucket.org/pingaling-monitoring/operator/pkg/controller/pingaling"
+	"github.com/duyuyang/pingaling-operator/pkg/controller/pingaling"
 )
 
 func init() {
