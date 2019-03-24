@@ -1,7 +1,7 @@
 package apis
 
 import (
-	"github.com/duyuyang/pingaling-operator/pkg/apis/pingaling/v1alpha1"
+	"github.com/yuyangd/pingaling-operator/pkg/apis/pingaling/v1alpha1"
 )
 
 func init() {

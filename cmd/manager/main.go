@@ -6,10 +6,10 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/duyuyang/pingaling-operator/pkg/apis"
-	"github.com/duyuyang/pingaling-operator/pkg/controller"
 	"github.com/operator-framework/operator-sdk/pkg/k8sutil"
 	sdkVersion "github.com/operator-framework/operator-sdk/version"
+	"github.com/yuyangd/pingaling-operator/pkg/apis"
+	"github.com/yuyangd/pingaling-operator/pkg/controller"
 	_ "k8s.io/client-go/plugin/pkg/client/auth/gcp"
 	"sigs.k8s.io/controller-runtime/pkg/client/config"
 	"sigs.k8s.io/controller-runtime/pkg/manager"
